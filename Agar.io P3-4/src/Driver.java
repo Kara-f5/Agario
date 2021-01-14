@@ -17,41 +17,41 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 	//Create an array of enemies
 	Enemy[] enemies= new Enemy[100];
 	
-	
+	Cell[] cells= new Cell[20];
 	public void paint(Graphics g) {
-		for(int i=0; i< enemies.length-1;i++) {
-		for(int j=i+1; j<enemies.length-1;i++) {
-			if(enemies[i].collided(enemies[j])) {
+		//for(int i=0; i< enemies.length-1;i++) {
+		//for(int j=i+1; j<enemies.length-1;i++) {
+		//	if(enemies[i].collided(enemies[j])) {
 			//smaller gets absorbed
 					//teleport the small one out of the screen
 					//enemies[i].getradius 
-					double r= enemies[i].getW1();//creating the variables for the radius
-					double r1= enemies[i].getW1();
+			//		double r= enemies[i].getW1();//creating the variables for the radius
+				//	double r1= enemies[i].getW1();
 					
 					
 					
 					
-					double area1= (int)r*r1*(Math.PI);//creating the variables for the area using the circle area formula
-					double area2=(int)r*r1*(Math.PI);
-					double newArea= area1+area2;
+				//	double area1= (int)r*r1*(Math.PI);//creating the variables for the area using the circle area formula
+				//	double area2=(int)r*r1*(Math.PI);
+				//	double newArea= area1+area2;
 					
-					int W2=(int)(Math.sqrt(newArea/Math.PI));
-					int speed2= 80/W2;
-					if(r>r1) {
-						enemies[i]= setX(1000);
-						enemies[j]= setW1(W2);
-						enemies[i]= setSpeed(speed2);
-					}else if(r<r1) {
-						enemies[j]= setX(1000);
-						enemies[i]= setW1(W2);
-						enemies[j]= setSpeed(speed2);
-					}
+				//	int W2=(int)(Math.sqrt(newArea/Math.PI));
+			//		int speed2= 80/W2;
+				//	if(r>r1) {
+			//			enemies[i]= setX(1000);
+					//	enemies[j]= setW1(W2);
+					//	enemies[i]= setSpeed(speed2);
+				//	}else if(r<r1) {
+					//	enemies[j]= setX(1000);
+					//	enemies[i]= setW1(W2);
+					//	enemies[j]= setSpeed(speed2);
+				//	}
 					
 					//new area creates a double, then cast to int
 					//get the radius with get width, check which one you have a bigger radius and move the small one out of the screen
-				}
-			}
-		}
+				//}
+			//}
+		//}
 		
 		super.paintComponent(g); //proper redrawing of the entire screen
 		for(Enemy tempVar: enemies) {
@@ -95,6 +95,9 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 		//visit each position in the enemies array
 		for(int i=0; i< enemies.length; i++) {
 			enemies[i]= new Enemy();
+		}
+		for(int i=0; i< enemies.length; i++) {
+			cells[i]= new Enemy();
 		}
 	
 		Timer t = new Timer(16, this); //chose swing library for import
