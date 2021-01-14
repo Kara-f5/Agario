@@ -4,7 +4,7 @@ import java.awt.Graphics;
 public class Cell {
 	//instance
 	private double mass;
-	private int w1,w2;
+	private int width;
 	private int  x, y;
 	
 	private Color color;
@@ -31,7 +31,12 @@ public class Cell {
 	
 
 	}
-	
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int paramwidth) {
+		width=paramwidth;
+	}
 	
 	private int random(int width2) {
 		// TODO Auto-generated method stub

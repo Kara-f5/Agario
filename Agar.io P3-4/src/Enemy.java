@@ -57,13 +57,16 @@ public class Enemy {
 	public int getW1() {
 		return w1/2; //getter for the radius
 	}
-	public void setW1(int newW1) {
-		w1=newW1;//setter for the width
+	public void setW1(int W2) {
+		w1=W2;//setter for the width
 	}
 	public void setX(int paramX) {
 		x=paramX; //setter for the X coordinate
 	}
-	
+	public void setSpeed(int speed2) {
+		speed=speed2; 
+	}
+	 
 	private int random(int width2) {
 		// TODO Auto-generated method stub
 		return 0;
