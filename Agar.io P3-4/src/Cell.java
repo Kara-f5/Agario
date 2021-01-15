@@ -19,11 +19,11 @@ public class Cell {
 		
 		
 		 
-		Color myColor= new Color(30,50,40);
-		int red= (int)(Math.random()*256);//make the enemies have red, green, or blue randomly
+		Color myColor= new Color(50);
+		//make the enemies have red, green, or blue randomly
 		int green= (int)(Math.random()*256);
-		int blue= (int)(Math.random()*256);
-		color= new Color(red, green, blue);
+		
+		color= new Color( green);
 		//randomize the position of every Enemy object to be in the 800*600 frame(width*height)
 		//randomize width[20 80]
 		//randomize speed to between [-3 3] (non zero)

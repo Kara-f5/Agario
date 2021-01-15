@@ -59,19 +59,20 @@ public class Enemy {
 	}
 	public void setW1(int W2) {
 		w1=W2;//setter for the width
-	}
+	} 
 	public void setX(int paramX) {
 		x=paramX; //setter for the X coordinate
 	}
 	public void setSpeed(int speed2) {
 		speedX=speed2; 
+		speedY=speed2;
 	}
-	 
-	private int random(int width2) {
+	  
+	//private int random(int width2) {
 		// TODO Auto-generated method stub
-		return 0;
+		//return 0;
 		//if(( Math.sqrt((y2 - y) * (y2 - y) + (x2 - x) * (x2 - x));)
-	}
+	//}
 
 	public boolean collided(Enemy en2) {
 		
