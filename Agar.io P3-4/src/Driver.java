@@ -26,9 +26,9 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 					//teleport the small one out of the screen
 					//enemies[i].getradius 
 					double r= (double)enemies[i].getW1();//creating the variables for the radius
-					double r1= (double)enemies[i].getW1();
+				double r1= (double)enemies[i].getW1();
 					
-					
+					 
 					  
 					
 					double area1= r*r1*(Math.PI);//creating the variables for the area using the circle area formula
@@ -38,18 +38,18 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 				int W2=(int)(Math.sqrt(newArea/Math.PI));
 				int speed2= 80/W2;
 				if(r>r1) {
-					enemies[i].(1000);
-						enemies[j]= setW1(W2);
-					enemies[j]= setSpeed(speed2);
-					}else if(r1>r) {
-						enemies[j]= setUI(1000);
-						enemies[i]= setW1(W2); 
-						enemies[i]= setSpeed(speed2);
+					enemies[i].setX(1000);
+					enemies[j].setW1(W2);
+					enemies[j].setSpeed(speed2);
+				}else if(r1>r) {
+						enemies[j].setX(1000);
+						enemies[i].setW1(W2); 
+						enemies[i].setSpeed(speed2);
 					}
 					
 					//new area creates a double, then cast to int
 					//get the radius with get width, check which one you have a bigger radius and move the small one out of the screen
-				}
+			}
 			}
 		}
 		

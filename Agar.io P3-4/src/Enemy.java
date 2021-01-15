@@ -66,7 +66,7 @@ public class Enemy {
 	public void setSpeed(int speed2) {
 		speedX=speed2; 
 		speedY=speed2;
-	}
+	} 
 	  
 	//private int random(int width2) {
 		// TODO Auto-generated method stub
