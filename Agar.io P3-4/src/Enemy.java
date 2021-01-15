@@ -64,7 +64,7 @@ public class Enemy {
 		x=paramX; //setter for the X coordinate
 	}
 	public void setSpeed(int speed2) {
-		speed=speed2; 
+		speedX=speed2; 
 	}
 	 
 	private int random(int width2) {
