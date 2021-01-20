@@ -20,7 +20,8 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 	Cell[] cells= new Cell[20];
 	public void paint(Graphics g) {
 		for(int i=0; i< enemies.length-1;i++) {
-		for(int j=i+1; j<enemies.length-1;i++) {
+		for(int j=i+1; j<enemies.length-1;j++) {
+		
 			if(enemies[i].collided(enemies[j])) {
 			//smaller gets absorbed
 					//teleport the small one out of the screen
@@ -31,8 +32,8 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 					 
 					  
 					
-					double area1= r*r1*(Math.PI);//creating the variables for the area using the circle area formula
-					double area2=r*r1*(Math.PI);
+					double area1= Math.pow(r, 2)*(Math.PI);//creating the variables for the area using the circle area formula
+					double area2=Math.pow(r1, 2)*(Math.PI);
 					double newArea= area1+area2;
 					
 				int W2=(int)(Math.sqrt(newArea/Math.PI));
