@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.MouseInfo;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +18,11 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 	//Create an array of enemies
 	Enemy[] enemies= new Enemy[100];
 	
+	Player p= new Player();
+	
 	Cell[] cells= new Cell[20];
 	public void paint(Graphics g) {
+		
 		for(int i=0; i< enemies.length-1;i++) {
 		for(int j=i+1; j<enemies.length-1;j++) {
 		
@@ -53,7 +57,31 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 			}
 			}
 		}
+		//find mx, my
+		int mx= MouseInfo.getPointerInfo().getLocation().x;
+		int my= MouseInfo.getPointerInfo().getLocation().y;
+		//player center x and y
 		
+		int px= p.x+p.radius;
+		int py= p.y+p.radius;
+		
+		double theta=Math.atan((mx-px)/(my-py));
+		//angle of the triangle
+		
+		p.vx=(int)(100*Math.cos(theta)/p.radius);//velocity 
+		p.vy=(int)(100*Math.cos(theta)/p.radius);
+		 
+		
+		//compare the x and y 
+		//if mx is less than something else, reverse
+		if(mx<px) {
+			p.vx=-1*(int)(100*Math.cos(theta)/p.radius);
+		}else if(my<py) {
+			p.vy=-1*(int)(100*Math.cos(theta)/p.radius);
+		}
+		System.out.println(p.vx+":"+p.vy);
+		//check for the position
+		p.paint(g);
 		super.paintComponent(g); //proper redrawing of the entire screen
 		for(Enemy tempVar: enemies) {
 			
