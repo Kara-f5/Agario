@@ -32,7 +32,7 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 					//enemies[i].getradius 
 					double r= (double)enemies[i].getW1();//creating the variables for the radius
 				double r1= (double)enemies[i].getW1();
-					
+					 
 					 
 					  
 					
@@ -58,7 +58,7 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 			}
 		}
 		//find mx, my
-		int mx= MouseInfo.getPointerInfo().getLocation().x;
+		int mx= MouseInfo.getPointerInfo().getLocation().x;//grab the location of the mouse
 		int my= MouseInfo.getPointerInfo().getLocation().y;
 		//player center x and y
 		
@@ -68,16 +68,18 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 		double theta=Math.atan((mx-px)/(my-py));
 		//angle of the triangle
 		
-		p.vx=(int)(100*Math.cos(theta)/p.radius);//velocity 
-		p.vy=(int)(100*Math.cos(theta)/p.radius);
-		 
+		p.vx=(int)(Math.sin(theta)*(100/p.radius))+1;//velocity 
+		p.vy=(int)(Math.cos(theta)*(100/p.radius))+1;//how they are distributed
+		
+		p.vx= Math.abs(p.vx);
+		p.vx= Math.abs(p.vy);
 		
 		//compare the x and y 
-		//if mx is less than something else, reverse
-		if(mx<px) {
-			p.vx=-1*(int)(100*Math.cos(theta)/p.radius);
-		}else if(my<py) {
-			p.vy=-1*(int)(100*Math.cos(theta)/p.radius);
+		//if mx is less than something else, reverse direction
+		if(mx<px+p.radius) {//if mouse is to the right of the player, then it is positive
+			p.vx*=-1;//switch direction of sign
+		}else if(my<py+p.radius) {//if the mouse is above the player
+			p.vy*=-1;
 		}
 		System.out.println(p.vx+":"+p.vy);
 		//check for the position
@@ -91,6 +93,7 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 			//call the Enemy objects to paint themselves
 		//for each - enhanced loop
 		for(Enemy tempVar: enemies) {//for every enemy en in enemies invoke the paint method 
+			tempVar.updatePos(p.vx, p.vy);//sending the direction to the enemies
 			tempVar.paint(g); 
 		}
 		 

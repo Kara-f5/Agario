@@ -67,7 +67,10 @@ public class Enemy {
 		speedX=speed2; 
 		speedY=speed2;
 	} 
-	  
+	   public void updatePos(int pvx, int pvy) {
+		   x-=pvx;
+		   y-=pvy;
+	   }
 	//private int random(int width2) {
 		// TODO Auto-generated method stub
 		//return 0;
