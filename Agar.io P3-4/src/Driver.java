@@ -16,7 +16,7 @@ import javax.swing.Timer;
 public class Driver extends JPanel implements MouseListener, ActionListener{
 	
 	//Create an array of enemies
-	Enemy[] enemies= new Enemy[100];
+	Enemy[] enemies= new Enemy[10];
 	
 	Player p= new Player();
 	
@@ -40,16 +40,17 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 					double area2=Math.pow(r1, 2)*(Math.PI);
 					double newArea= area1+area2;
 					
-				int W2=(int)(Math.sqrt(newArea/Math.PI));
+				int W2=(int)(2*Math.sqrt(newArea/Math.PI));
 				int speed2= 80/W2;
 				if(r>r1) {
 					enemies[i].setX(1000);
 					enemies[j].setW1(W2);
-					enemies[j].setSpeed(speed2);
+					enemies[j].setSpeedX(speed2);
 				}else if(r1>r) {
 						enemies[j].setX(1000);
 						enemies[i].setW1(W2); 
-						enemies[i].setSpeed(speed2);
+						enemies[i].setSpeedX(speed2);
+						enemies[j].setSpeedY(speed2);
 					}
 					
 					//new area creates a double, then cast to int
@@ -96,7 +97,14 @@ public class Driver extends JPanel implements MouseListener, ActionListener{
 			tempVar.updatePos(p.vx, p.vy);//sending the direction to the enemies
 			tempVar.paint(g); 
 		}
-		 
+		
+		
+		
+		for(Cell tempVar: cells) {
+			 tempVar.updatePos(p.vx, p.vy);
+			 tempVar.paint(g);
+			 
+		 }
 	}
 	
  

@@ -8,8 +8,8 @@ public class Cell {
 	private int  x, y;
 	
 	private Color color;
-	private int r;
-	private int radius;
+	
+	private int radius=10;
 	
 	//initial values
 	public Cell() {
@@ -59,7 +59,10 @@ public class Cell {
 		g.fillOval(x,  y, 10 ,  10);
 		
 	}
-		
+	public void updatePos(int pvx, int pvy) {
+		   x-=pvx;
+		   y-=pvy;
+	   }
 		
 	/* anything that updates the variables of this object */
 	public void update() {

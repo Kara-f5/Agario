@@ -34,7 +34,7 @@ public class Enemy {
 		if(Math.random()>0.5){ 
 			speedX*=-1; 
 		}
-		if(Math.random()>0.5){ 
+		if(Math.random()<0.5){ 
 			speedY*=-1; 
 		}
 		
@@ -63,10 +63,13 @@ public class Enemy {
 	public void setX(int paramX) {
 		x=paramX; //setter for the X coordinate
 	}
-	public void setSpeed(int speed2) {
+	public void setSpeedX(int speed2) {
 		speedX=speed2; 
-		speedY=speed2;
+		
 	} 
+	public void setSpeedY(int speed2) {
+		speedY=speed2;
+	}
 	   public void updatePos(int pvx, int pvy) {
 		   x-=pvx;
 		   y-=pvy;
@@ -104,7 +107,7 @@ public class Enemy {
 		//call fillOval here
 		g.setColor(color);
 		g.fillOval(x,  y,  w1,  w1);
-   
+    
 	}
 		
 		

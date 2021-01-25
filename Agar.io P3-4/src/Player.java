@@ -16,7 +16,10 @@ public class Player {
 		y= 600/2-radius;
 	}
 	public void paint(Graphics g) {
-		g.setColor(c);
+		g.setColor(c);  
 		g.fillOval(x, y,  radius*2,  radius*2);
 	}
+	
+	public boolean collided
 }
+
